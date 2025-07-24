@@ -9,7 +9,6 @@ function fetchGradeData() {
     ];
 }
 
-// Function to populate the gradebook table
 function populateGradebook(data) {
     console.log("Populating gradebook with data:", data);
     const tableBody = document.querySelector("#gradebook tbody");
@@ -17,14 +16,11 @@ function populateGradebook(data) {
     data.forEach(student => {
         const row = document.createElement("tr");
 
-        // Create and append student name cell
         const nameCell = document.createElement("td");
         nameCell.textContent = student.name;
         row.appendChild(nameCell);
 
-        // Append assignment grades
-        const assignments = ["assignment1", "assignment2", "assignment3"];
-        assignments.forEach(key => {
+        ["assignment1", "assignment2", "assignment3"].forEach(key => {
             const cell = document.createElement("td");
             cell.textContent = student[key];
             row.appendChild(cell);
@@ -34,6 +30,5 @@ function populateGradebook(data) {
     });
 }
 
-// Simulated workflow (remove when connecting to actual database)
 const gradeData = fetchGradeData();
 populateGradebook(gradeData);
